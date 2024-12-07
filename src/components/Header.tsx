@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 
 export default function Header() {
-  const [theme, setTheme] = useState("light");
   const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,22 +15,26 @@ export default function Header() {
       setScrolled(isScrolled);
     };
 
-    window.addEventListener("scrolL", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    setMounted(true);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    document.documentElement.classList.toggle("dark");
+    setTheme(theme === "light" ? "dark" : "light");
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur=md "
-          : "bg-transparent"
+          ? "bg-white/80 dark:bg-black/80 backdrop-blur-md"
+      : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
