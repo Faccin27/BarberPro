@@ -22,3 +22,39 @@
     rgb(var(--background-end-rgb))
   ) rgb(var(--background-start-rgb));
 }
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.animate-border {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.animate-border::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#fbbf24, #fbbf24), linear-gradient(#f59e0b, #f59e0b), linear-gradient(#d97706, #d97706), linear-gradient(#b45309, #b45309);
+  animation: rotate 4s linear infinite;
+}
+
+.animate-border::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: inherit;
+  border-radius: 0.4rem;
+}
+
