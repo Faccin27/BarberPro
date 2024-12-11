@@ -1,0 +1,33 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 2rem 0;
+  }
+  
+  .mapWrapper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .arrowMolding {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 19px;
+    color: #f3f4f6;
+    z-index: 1;
+  }
+  
+  .arrowMoldingUp {
+    composes: arrowMolding;
+    top: -1px;
+  }
+  
+  .arrowMoldingDown {
+    composes: arrowMolding;
+    bottom: -1px;
+    transform: rotate(180deg);
+  }
+  
+  
