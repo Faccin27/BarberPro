@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Playfair_Display } from 'next/font/google'
 import "./globals.css";
 import { ThemeProvider } from 'next-themes'
 
@@ -15,6 +16,9 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const playfair = Playfair_Display({ subsets: ['latin'] })
+
+
 export const metadata: Metadata = {
   title: "Andre Barber",
   description: "Homem também cuida do visual.",
@@ -29,7 +33,7 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body
       
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.className} antialiased`}
       >
         <ThemeProvider
           attribute="class"
