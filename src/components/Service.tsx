@@ -37,7 +37,7 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section className="py-16 bg-gray-50 dark:bg-zinc-900">
+    <section id='service' className="py-16 bg-gray-50 dark:bg-zinc-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Nossos Serviços

@@ -6,7 +6,7 @@ import LaminaSvg from "@/assets/navalha.png";
 
 export default function AppPromotion() {
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gradient-to-l from-black via-zinc-900 to-black">
+    <section id="app" className="py-16 bg-gray-100 dark:bg-gradient-to-l from-black via-zinc-900 to-black">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-8 md:mb-0">

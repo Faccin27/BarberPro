@@ -32,15 +32,44 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 dark:bg-black/60 backdrop-blur-md"
-      : ""
+        scrolled ? "bg-white/20 dark:bg-black/60 backdrop-blur-md" : ""
       }`}
     >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center ">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
         <div className="text-2xl font-bold text-gray-800 dark:text-white">
           Andre Barber
         </div>
+
+        {/* Navigation */}
+        <nav className="flex gap-6">
+          <a
+            href="#about"
+            className="text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+          >
+            Sobre
+          </a>
+          <a
+            href="#service"
+            className="text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+          >
+            Serviços
+          </a>
+          <a
+            href="#app"
+            className="text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+          >
+            Aplicativo
+          </a>
+          <a
+            href="#local"
+            className="text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+          >
+            Localização
+          </a>
+        </nav>
+
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
           className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 dark:text-white"

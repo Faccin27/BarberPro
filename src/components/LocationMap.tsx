@@ -132,7 +132,7 @@ const LocationMap: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <section id="local">
       <h2 className="text-3xl font-bold text-center mt-12 text-gray-800 dark:text-white">
         Nossa localização
       </h2>
@@ -146,7 +146,7 @@ const LocationMap: React.FC = () => {
         </svg>
 
       </div>
-    </>
+      </section>
   );
 };
 

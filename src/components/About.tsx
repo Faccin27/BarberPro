@@ -4,7 +4,7 @@ import barber from '@/assets/barber.jpg'
 
 export default function About() {
   return (
-    <section className="py-16 bg-white dark:bg-zinc-900">
+    <section id='about' className="py-16 bg-white dark:bg-zinc-900">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           {/* Left half - Title and Description */}
