@@ -1,11 +1,15 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { Scissors, BeakerIcon as Beard, SprayCanIcon as Spray, Coffee } from 'lucide-react'
+import barba from '@/assets/barba.jpg'
+import cabelo from '@/assets/cabelo.png'
+import tratamento from '@/assets/tratamento.jpg'
+import ambiente from '@/assets/ambiente.jpg'
 
 interface Service {
   icon: React.ReactNode
   title: string
   description: string
-  image: string
+  image: string | StaticImageData
 }
 
 const services: Service[] = [
@@ -13,25 +17,25 @@ const services: Service[] = [
     icon: <Scissors className="w-8 h-8" />,
     title: "Corte de Cabelo",
     description: "Cortes modernos e clássicos para todos os estilos.",
-    image: "/placeholder.svg?height=200&width=300"
+    image: cabelo
   },
   {
     icon: <Beard className="w-8 h-8" />,
     title: "Barba",
     description: "Aparos, modelagens e tratamentos para sua barba.",
-    image: "/placeholder.svg?height=200&width=300"
+    image: barba
   },
   {
     icon: <Spray className="w-8 h-8" />,
     title: "Tratamentos",
     description: "Hidratação, coloração e outros cuidados capilares.",
-    image: "/placeholder.svg?height=200&width=300"
+    image: tratamento
   },
   {
     icon: <Coffee className="w-8 h-8" />,
     title: "Experiência",
-    description: "Ambiente acolhedor com café e bebidas cortesia.",
-    image: "/placeholder.svg?height=200&width=300"
+    description: "Ambiente acolhedor com comida, bebida e a sua musica.",
+    image: ambiente
   }
 ]
 
