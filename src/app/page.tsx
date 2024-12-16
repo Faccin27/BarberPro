@@ -4,6 +4,7 @@ import Services from '@/components/Service'
 import About from '@/components/About';
 import LocationMap from '@/components/LocationMap';
 import AppPromotion from '@/components/AppPromotion';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <AppPromotion />
       <LocationMap />
+      <Footer />
     </div>
   );
 }
