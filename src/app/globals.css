@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --primary: #1d1d18;
+  --secondary: rgba(255, 252, 215, 0.199);
+  --tertiary: rgba(249, 253, 31, 0.082);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,3 +63,23 @@
   border-radius: 0.4rem;
 }
 
+
+*::-webkit-scrollbar {
+  width: 17px;
+  background-color: #18181b ;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 6px;
+  border: 3px solid var(--primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--tertiary);
+}
