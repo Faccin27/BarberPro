@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import Services from '@/components/Service'
 import About from '@/components/About';
 import LocationMap from '@/components/LocationMap';
+import AppPromotion from '@/components/AppPromotion';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <AppPromotion />
       <LocationMap />
     </div>
   );
