@@ -51,7 +51,7 @@ export default function AppPromotion() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl">
-              <div className="relative group cursor-pointer">
+              <div className="relative group ">
                 <div className="absolute inset-0 bg-black opacity-60 rounded-lg"></div>
                 <div className="relative p-6 flex flex-col items-center justify-center aspect-square bg-gradient-to-b from-gray-800 to-black rounded-lg transition-transform transform hover:scale-105">
                   <Image
@@ -64,14 +64,14 @@ export default function AppPromotion() {
                   <span className="text-white font-bold text-xl">BARBA</span>
                 </div>
               </div>
-              <div className="relative group cursor-pointer">
+              <div className="relative group ">
                 <div className="absolute inset-0 bg-black opacity-60 rounded-lg"></div>
                 <div className="relative p-6 flex flex-col items-center justify-center aspect-square bg-gradient-to-b from-gray-800 to-black rounded-lg transition-transform transform hover:scale-105">
                   <Scissors className="w-12 h-12 mb-4 text-white" />
                   <span className="text-white font-bold text-xl">CABELO</span>
                 </div>
               </div>
-              <div className="relative group cursor-pointer">
+              <div className="relative group ">
                 <div className="absolute inset-0 bg-black opacity-60 rounded-lg"></div>
                 <div className="relative p-6 flex flex-col items-center justify-center aspect-square bg-gradient-to-b from-gray-800 to-black rounded-lg transition-transform transform hover:scale-105">
                   <div className="flex items-center gap-2 mb-4">

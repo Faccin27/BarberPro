@@ -1,26 +1,27 @@
-"use client";
-
-import { useState, useEffect } from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  
   useEffect(() => {
-    // Verifica se o usuário já tem uma preferência salva
+    // Check if user has a saved theme preference
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme) {
-      setTheme(savedTheme); // Aplica o tema salvo
+      setTheme(savedTheme); // Apply saved theme
     } else {
-      // Se não houver preferência, verifica a preferência do sistema
+      // If no preference, check system preference
       const systemPrefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
-      setTheme(systemPrefersDark ? "dark" : "light"); // Define o tema com base no sistema
+      setTheme(systemPrefersDark ? "dark" : "light"); // Set theme based on system
     }
 
     const handleScroll = () => {
@@ -36,12 +37,16 @@ export default function Header() {
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme); // Altera o tema
-    localStorage.setItem("theme", newTheme); // Salva a preferência no localStorage
+    setTheme(newTheme); // Change theme
+    localStorage.setItem("theme", newTheme); // Save preference in localStorage
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   if (!mounted) {
-    return null; // Evita renderização antes de montar o componente
+    return null; // Prevent rendering before component mounts
   }
 
   return (
@@ -56,8 +61,8 @@ export default function Header() {
           Andre Barber
         </div>
 
-        {/* Navigation */}
-        <nav className="flex gap-6">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-6">
           <a
             href="#about"
             className={`${scrolled ? "text-zinc-800" : "text-slate-300" } dark:text-gray-200 hover:text-yellow-500 transition duration-300`}
@@ -84,15 +89,71 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-full bg-gray-200 dark:bg-slate-300 dark:text-white"
-          aria-label="Toggle theme"
-        >
-          {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
-        </button>
+        {/* Desktop Theme Toggle */}
+        <div className="hidden md:block">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-200 dark:bg-zinc-800 dark:text-white"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Hamburger Menu Button */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-200 dark:bg-zinc-800 dark:text-white mr-2"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
+          </button>
+          <button
+            onClick={toggleMobileMenu}
+            className="p-2 rounded-full bg-gray-200 dark:bg-zinc-800 dark:text-white"
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? <X size={24} className="text-white" /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-white dark:bg-black z-40 pt-20">
+          <nav className="flex flex-col items-center gap-6">
+            <a
+              href="#about"
+              onClick={toggleMobileMenu}
+              className="text-xl text-zinc-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+            >
+              Sobre
+            </a>
+            <a
+              href="#service"
+              onClick={toggleMobileMenu}
+              className="text-xl text-zinc-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+            >
+              Serviços
+            </a>
+            <a
+              href="#app"
+              onClick={toggleMobileMenu}
+              className="text-xl text-zinc-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+            >
+              Aplicativo
+            </a>
+            <a
+              href="#local"
+              onClick={toggleMobileMenu}
+              className="text-xl text-zinc-800 dark:text-gray-200 hover:text-yellow-500 transition duration-300"
+            >
+              Localização
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

@@ -28,6 +28,7 @@ export default function Hero() {
           hover:text-white dark:text-white
           focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800
         ">
+          <a className="py-2.5" href="#app">
           <span className="
             relative px-5 py-2.5 transition-all ease-in duration-75
             bg-white dark:bg-gray-900 rounded-md
@@ -35,6 +36,7 @@ export default function Hero() {
           ">
             Reserve já!
           </span>
+          </a>
         </button>
       </div>
     </section>
