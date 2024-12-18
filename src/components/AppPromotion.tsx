@@ -18,8 +18,8 @@ export default function AppPromotion() {
               Escolha o serviço, a data e o horário que melhor se adequam à sua
               rotina.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-center items-center sm:justify-start">
+            <a
                 href="https://play.google.com/store/apps/details?id=br.com.starapp.appbarbercli&hl=pt_BR&pli=1"
                 className="transition-opacity hover:opacity-80"
                 target="_blank"
